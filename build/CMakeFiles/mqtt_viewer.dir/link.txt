@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/mqtt_viewer.dir/Mqtt_client.cpp.o CMakeFiles/mqtt_viewer.dir/MqttViewer.cpp.o CMakeFiles/mqtt_viewer.dir/Mqtt_controller.cpp.o CMakeFiles/mqtt_viewer.dir/ScreenHandler.cpp.o  -o mqtt_viewer  -Wl,-rpath,/home/sor9cob/Personal/mqtt_viewer/cpp_version/mqtt/lib -lncurses ../mqtt/lib/libpaho-mqtt3c.so -lpthread 
