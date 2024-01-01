@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>MqttViewer</title>
+<link rel="icon" type="image/x-icon" href="./images/mqtt_logo.jpg">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<script src="./js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="./css/styles.css">
+<script src="./js/mqtt.js"></script>
+</head>
+<body>
+<div class="row  border">
+    <div class="col-6">
+        <p>Mqtt Viewer</p>
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn" onclick="start()">Start</button>
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn" onclick="stop()">Stop</button>
+    </div>
+</div>  
+<div class="row border">
+  <div class="mb-3 col-3">
+    <label for="exampleFormControlInput1" class="form-label">Address</label>
+    <input type="text" class="form-control" id="ipaddressid" >
+  </div>
+  <div class="col-3 pt-4 ">
+    <button type="button" class="connect_btn" onclick="connect()">Connect</button>
+  </div>
+  <div class="col-3 pt-4 ">
+    <button type="button" class="clear_btn" onclick="clearall()">clear</button>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Topicname</th>
+      <th scope="col">Payload</th>
+    </tr>
+  </thead>
+  <tbody  id="id_tbody">
+  </tbody>
+</table>
+</body>
+</html>
