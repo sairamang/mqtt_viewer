@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(mqtt_viewer)
+set(CMAKE_BUILD_TYPE DEBUG)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/mqtt/include/)
 set(CMAKE_PREFIX_PATH ${CMAKE_CURRENT_SOURCE_DIR}/mqtt)
 message("CMAKE PREFIX PATH set to ${CMAKE_PREFIX_PATH}")

@@ -22,12 +22,14 @@ MqttViewer::MqttViewer()
 }
 MqttViewer::~MqttViewer()
 {
+    delete m_httpserver;
     delete m_mqtt_ctrl;
     delete m_scr_handl;
     delete m_web_socket_handler;
-    delete m_httpserver;
+    
     pthread_join(thread,nullptr);
     pthread_join(http_thread,nullptr);
+    pthread_join(http_run_thread,nullptr);
     printf("Destroying Mqtt Viewer Obj \n");
 }
 int main()
