@@ -14,6 +14,8 @@ add_executable(mqtt_viewer
                ScreenHandler.cpp
                WebSocketHandler.cpp
                httpserver.cpp
+               Mqtt_Cloud.cpp 
+               MqttPublisher.cpp 
                )
 target_link_libraries(mqtt_viewer
                       ncurses

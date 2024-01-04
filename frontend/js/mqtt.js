@@ -128,4 +128,39 @@ function addrow(sno,topicname,payload) {
   // You could also do the same for the cells and inputs
 };
 
+// called when the client connects
+function onConnect() {
+  // Once a connection has been made, make a subscription and send a message.
+  console.log("onConnect");
+  client.subscribe("sairamang/#");
+}
 
+// called when the client loses its connection
+function onConnectionLost(responseObject) {
+  if (responseObject.errorCode !== 0) {
+    console.log("onConnectionLost:"+responseObject.errorMessage);
+  }
+}
+
+var onmessagearrived_count=1;
+// called when a message arrives
+function onMessageArrived(message) {
+  console.log("topic"+message.destinationName+" "+ "Payload"+message.payloadString);
+  addrow(onmessagearrived_count,message.destinationName,message.payloadString);
+  onmessagearrived_count++;
+
+}
+
+// Create a client instance
+var client = new Paho.MQTT.Client("test.mosquitto.org",8080, "clientId");
+function connecttocloud()
+{
+
+// set callback handlers
+client.onConnectionLost = onConnectionLost;
+client.onMessageArrived = onMessageArrived;
+
+// connect the client
+client.connect({onSuccess:onConnect});
+
+}
