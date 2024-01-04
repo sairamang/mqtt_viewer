@@ -150,9 +150,12 @@ function onMessageArrived(message) {
   onmessagearrived_count++;
 
 }
-
+function OnFailuremqtt()
+{
+  console.log("Failure in connection");
+}
 // Create a client instance
-var client = new Paho.MQTT.Client("test.mosquitto.org",8080, "clientId");
+var client = new Paho.MQTT.Client("test.mosquitto.org",8081, "clientId");
 function connecttocloud()
 {
 
@@ -160,7 +163,12 @@ function connecttocloud()
 client.onConnectionLost = onConnectionLost;
 client.onMessageArrived = onMessageArrived;
 
+var options = {
+  timeout: 3,
+  onSuccess: onConnect,
+  useSSL:true
+};
 // connect the client
-client.connect({onSuccess:onConnect});
+client.connect(options);
 
 }
